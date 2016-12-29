@@ -25,7 +25,10 @@
 
       // other libraries
       'rxjs':                      'npm:rxjs',
-      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
+      'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
+
+      'redux':        'npm:redux/dist/redux.js',
+      'ng2-redux':    'npm:ng2-redux/lib/index.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

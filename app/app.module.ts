@@ -1,11 +1,26 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }      from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser'
 
+import { NgReduxModule, NgRedux } from 'ng2-redux';
+import { createStore, Store } from 'redux';
+import { filterActions } from './state/app.actions';
+import { FilterState, filterReducer } from './state/app.reducers';
+
+import { FilteringHotelsService } from './filtering-hotels.service';
+import { AccommodationTypeComponent }  from './accommodation-type/accommodation-type.component';
 import { AppComponent }  from './app.component';
 
+export const appStore: Store<FilterState> = createStore(filterReducer);
+
 @NgModule({
-  imports:      [ BrowserModule ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+  imports:      [ BrowserModule, FormsModule, NgReduxModule.forRoot() ],
+  declarations: [ AppComponent, AccommodationTypeComponent ],
+  providers:    [ FilteringHotelsService ],
+  bootstrap:    [ AppComponent ],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(ngRedux: NgRedux<FilterState>) {
+    ngRedux.provideStore(appStore);
+  }
+}

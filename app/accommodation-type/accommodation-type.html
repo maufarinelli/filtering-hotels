@@ -1,0 +1,9 @@
+<section class="accommodation-type form-group">
+  <div *ngFor="let type of accommodationTypes" class="col-sm-offset-2 col-sm-10">
+    <div class="checkbox">
+      <label>
+        <input [(ngModel)]="type.id" type="checkbox"> {{type.name}}
+      </label>
+    </div>
+  </div>
+</section>
