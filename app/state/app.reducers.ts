@@ -3,11 +3,11 @@ import { Action } from './app.actions';
 
 export interface FilterState {
   accommodationType: any
-};
+}
 
 export interface Reducer<T> {
   (state: T, action: Action): T
-};
+}
 
 const initialState: FilterState = Object.assign({}, {accommodationType: ACCOMMODATION_TYPE});
 

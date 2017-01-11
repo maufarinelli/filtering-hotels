@@ -1,9 +1,3 @@
-export interface AccomType {
-  id: number;
-  name: string;
-  checked: boolean;
-}
-
 export const ACCOMMODATION_TYPE = [
   { id: 1, name: 'Hotel', checked: true },
   { id: 2, name: 'Bed & Breakfast', checked: false},
