@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgRedux, select } from 'ng2-redux';
+
+import { FilterState } from '../state/app.reducers';
+import { filterActions } from '../state/app.actions';
 
 import { FilteringHotelsService } from '../filtering-hotels.service';
 import { AccommodationType } from './accommodation-type';
@@ -11,10 +15,18 @@ import { AccommodationType } from './accommodation-type';
 export class AccommodationTypeComponent  {
   accommodationTypes: AccommodationType[];
 
-  constructor(private filteringHotelsService: FilteringHotelsService) {}
+  constructor(
+    private filteringHotelsService: FilteringHotelsService,
+    private ngRedux: NgRedux<FilterState>
+  ) {}
 
   ngOnInit(): void {
     this.filteringHotelsService.getAccommodationType()
       .then(types => this.accommodationTypes = types);
+  }
+
+  onCheckToggle(accommodationType) {
+    accommodationType.checked = !accommodationType.checked;
+    this.ngRedux.dispatch({ type: 'ACCOMMODATION_TYPE_CHANGE', payload: accommodationType});
   }
 }

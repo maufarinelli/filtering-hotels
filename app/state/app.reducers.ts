@@ -14,10 +14,11 @@ const initialState: FilterState = Object.assign({}, {accommodationType: ACCOMMOD
 export const filterReducer: Reducer<FilterState> = function(state = initialState, action) {
   switch (action.type) {
     case 'ACCOMMODATION_TYPE_CHANGE':
-      return state.accommodationType.map(type => {
+      state.accommodationType.map(type => {
         type.id === action.payload.id ?
           Object.assign({}, type, {checked: action.payload.checked}) :
           type;
       });
+      return state;
   }
 };
