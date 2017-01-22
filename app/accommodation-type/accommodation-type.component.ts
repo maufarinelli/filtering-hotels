@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgRedux, select } from 'ng2-redux';
+import { NgRedux } from 'ng2-redux';
 
 import { FilterState } from '../state/app.reducers';
-import { filterActions } from '../state/app.actions';
 
 import { FilteringHotelsService } from '../filtering-hotels.service';
 import { AccommodationType } from './accommodation-type';

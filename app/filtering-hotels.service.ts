@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 
 import { AccommodationType } from './accommodation-type/accommodation-type';
-import { ACCOMMODATION_TYPE } from './accommodation-type/mock-accommodation-type';
+import { Score } from './score/score';
+import { initialState } from './state/app.initialState';
 
 @Injectable()
 export class FilteringHotelsService {
   getAccommodationType(): Promise<AccommodationType[]> {
-    return Promise.resolve(ACCOMMODATION_TYPE);
+    return Promise.resolve(initialState.accommodationTypes);
+  }
+
+  getScores(): Promise<Score[]> {
+    return Promise.resolve(initialState.scores);
   }
 }

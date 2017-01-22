@@ -1,0 +1,5 @@
+<section class="score form-group">
+   <select type="number" [(ngModel)]="selectedValue" (ngModelChange)="onCheckToggle()">
+     <option *ngFor="let score of scores" [ngValue]="score.value">{{score.value}}</option>
+   </select>
+</section>
