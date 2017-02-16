@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { NgReduxModule, NgRedux } from 'ng2-redux';
 import { createStore, Store } from 'redux';
-import { FilterState, filterReducer } from './state/app.reducers';
+import { FilterState } from './state/app.initialState';
+import { filterReducer } from './state/app.reducers';
 
 import { FilteringHotelsService } from './filtering-hotels.service';
 import { AccommodationTypeComponent }  from './accommodation-type/accommodation-type.component';

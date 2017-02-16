@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AccommodationType } from './accommodation-type/accommodation-type';
-import { Score } from './score/score';
+import { SCORE_VALUES } from './score/mock-scores';
 import { initialState } from './state/app.initialState';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class FilteringHotelsService {
     return Promise.resolve(initialState.accommodationTypes);
   }
 
-  getScores(): Promise<Score[]> {
-    return Promise.resolve(initialState.scores);
+  getScoreValues(): Promise<any[]> {
+    return Promise.resolve(SCORE_VALUES);
   }
 }

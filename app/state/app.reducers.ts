@@ -13,14 +13,24 @@ export const filterReducer: Reducer<FilterState> = function(state = initialState
           Object.assign({}, type, {checked: action.payload.checked}) :
           type;
       });
-      console.log(state.accommodationTypes)
+      console.log(state.accommodationTypes);
       return state;
-    case 'SCORE_CHANGE':
+    case 'SCORE_START_CHANGE':
+      console.log('action id : ', action);
+      console.log(state.scores);
       state.scores.map(score => {
         score.id === action.payload.id ?
           Object.assign({}, score, {value: action.payload.value}) :
           score
-      })
+      });
+      console.log(state.scores);
+      return state;
+    case 'SCORE_END_CHANGE':
+      state.scores.map(score => {
+        score.id === action.payload.id ?
+          Object.assign({}, score, {value: action.payload.value}) :
+          score
+      });
       console.log(state.scores);
       return state;
   }

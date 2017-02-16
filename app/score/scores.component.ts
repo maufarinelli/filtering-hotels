@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux } from 'ng2-redux';
 
-import { FilterState } from '../state/app.reducers';
+import { FilterState } from '../state/app.initialState';
 
 import { FilteringHotelsService } from '../filtering-hotels.service';
 import { Score } from './score';
@@ -12,8 +12,9 @@ import { Score } from './score';
   templateUrl: './scores.html',
 })
 export class ScoresComponent {
-  scores: Score[];
-  selectedValue: number;
+  scoresValues: Score[];
+  selectedStartValue: number;
+  selectedEndValue: number;
 
   constructor(
     private filteringHotelsService: FilteringHotelsService,
@@ -21,13 +22,18 @@ export class ScoresComponent {
   ) {}
 
   ngOnInit(): void {
-    this.filteringHotelsService.getScores()
-      .then(scores => this.scores = scores);
+    this.filteringHotelsService.getScoreValues()
+      .then(scoresValues => this.scoresValues = scoresValues);
   }
 
-  onCheckToggle(score) {
-    this.selectedValue = this.selectedValue;
-    this.ngRedux.dispatch({ type: 'SCORE_CHANGE', payload: this.selectedValue})
+  onSelectStartValue() {
+    this.selectedStartValue = this.selectedStartValue;
+    this.ngRedux.dispatch({ type: 'SCORE_START_CHANGE', payload: {id: 100, name: 'startScore', value: this.selectedStartValue} });
+  }
+
+  onSelectEndValue() {
+    this.selectedEndValue = this.selectedEndValue;
+    this.ngRedux.dispatch({ type: 'SCORE_END_CHANGE', payload: {id: 101, name: 'endScore', value: this.selectedEndValue} });
   }
 
 }
