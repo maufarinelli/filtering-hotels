@@ -6,6 +6,7 @@ export interface Reducer<T> {
 }
 
 export const filterReducer: Reducer<FilterState> = function(state = initialState, action) {
+  Object.freeze(state);
   switch (action.type) {
     case 'ACCOMMODATION_TYPE_CHANGE':
       state.accommodationTypes.map(type => {

@@ -36,4 +36,12 @@ export class ScoresComponent {
     this.ngRedux.dispatch({ type: 'SCORE_END_CHANGE', payload: {id: 101, name: 'endScore', value: this.selectedEndValue} });
   }
 
+  startScoreState(score) {
+    return this.selectedEndValue <= score.value;
+  }
+
+  endScoreState(score) {
+    return this.selectedStartValue >= score.value;
+  }
+
 }
