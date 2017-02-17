@@ -16,11 +16,9 @@ export const filterReducer: Reducer<FilterState> = function(state = initialState
       console.log(state.accommodationTypes);
       return state;
     case 'SCORE_START_CHANGE':
-      console.log('action id : ', action);
-      console.log(state.scores);
       state.scores.map(score => {
         score.id === action.payload.id ?
-          Object.assign({}, score, {value: action.payload.value}) :
+          Object.assign({}, score, score.value = action.payload.value) :
           score
       });
       console.log(state.scores);
@@ -28,7 +26,7 @@ export const filterReducer: Reducer<FilterState> = function(state = initialState
     case 'SCORE_END_CHANGE':
       state.scores.map(score => {
         score.id === action.payload.id ?
-          Object.assign({}, score, {value: action.payload.value}) :
+          Object.assign({}, score, score.value = action.payload.value) :
           score
       });
       console.log(state.scores);
