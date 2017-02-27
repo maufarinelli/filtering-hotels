@@ -32,5 +32,21 @@ export const filterReducer: Reducer<FilterState> = function(state = initialState
       });
       console.log(state.scores);
       return state;
+    case 'PRICE_START_CHANGE':
+      state.prices.map(price => {
+        price.id === action.payload.id ?
+          Object.assign({}, price, price.value = action.payload.value) :
+          price
+      });
+      console.log(state.prices);
+      return state;
+    case 'PRICE_END_CHANGE':
+      state.prices.map(price => {
+        price.id === action.payload.id ?
+          Object.assign({}, price, price.value = action.payload.value) :
+          price
+      });
+      console.log(state.prices);
+      return state;
   }
 };
