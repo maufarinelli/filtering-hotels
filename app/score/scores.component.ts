@@ -27,12 +27,10 @@ export class ScoresComponent {
   }
 
   onSelectStartValue() {
-    this.selectedStartValue = this.selectedStartValue;
     this.ngRedux.dispatch({ type: 'SCORE_START_CHANGE', payload: {id: 100, name: 'startScore', value: this.selectedStartValue} });
   }
 
   onSelectEndValue() {
-    this.selectedEndValue = this.selectedEndValue;
     this.ngRedux.dispatch({ type: 'SCORE_END_CHANGE', payload: {id: 101, name: 'endScore', value: this.selectedEndValue} });
   }
 

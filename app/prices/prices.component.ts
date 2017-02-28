@@ -27,13 +27,11 @@ export class PricesComponent {
   }
 
   onSelectStartPrice() {
-    this.selectedStartPrice = this.selectedStartPrice;
-    this.ngRedux.dispatch({ type: 'PRICE_START_CHANGE', payload: {id: 100, name: 'startPrice', value: this.selectedStartPrice} });
+    this.ngRedux.dispatch({ type: 'PRICE_START_CHANGE', payload: {id: 200, name: 'startPrice', value: this.selectedStartPrice} });
   }
 
   onSelectEndPrice() {
-    this.selectedEndPrice = this.selectedEndPrice;
-    this.ngRedux.dispatch({ type: 'PRICE_END_CHANGE', payload: {id: 101, name: 'endPrice', value: this.selectedEndPrice} });
+    this.ngRedux.dispatch({ type: 'PRICE_END_CHANGE', payload: {id: 201, name: 'endPrice', value: this.selectedEndPrice} });
   }
 
   startPriceState(price) {
