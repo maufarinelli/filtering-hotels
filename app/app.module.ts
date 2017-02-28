@@ -11,13 +11,14 @@ import { FilteringHotelsService } from './filtering-hotels.service';
 import { AccommodationTypeComponent }  from './accommodation-type/accommodation-type.component';
 import { ScoresComponent } from './score/scores.component';
 import { PricesComponent } from './prices/prices.component';
+import { HotelsListComponent } from './hotels-list/hotels-list.component';
 import { AppComponent }  from './app.component';
 
 export const appStore: Store<FilterState> = createStore(filterReducer);
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, NgReduxModule.forRoot() ],
-  declarations: [ AppComponent, AccommodationTypeComponent, ScoresComponent, PricesComponent ],
+  declarations: [ AppComponent, AccommodationTypeComponent, ScoresComponent, PricesComponent, HotelsListComponent ],
   providers:    [ FilteringHotelsService ],
   bootstrap:    [ AppComponent ],
 })
